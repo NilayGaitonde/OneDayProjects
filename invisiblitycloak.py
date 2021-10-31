@@ -8,7 +8,7 @@ import numpy as np
 import captureImage
 import os
 # get webcam open
-video=cv2.VideoCapture(0,cv2.CAP_DSHOW)
+video=cv2.VideoCapture(0)
 if (os.path.isfile('./image.jpg')):
    pass
 else:

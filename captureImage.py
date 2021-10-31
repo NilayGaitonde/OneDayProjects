@@ -1,6 +1,8 @@
 import cv2
+import time
 def capture():
-    video=cv2.VideoCapture(0,cv2.CAP_DSHOW)
+    print('Capturing')
+    video=cv2.VideoCapture(0)
     while video.isOpened():
         ret,frame=video.read()
         if ret:
@@ -13,3 +15,6 @@ def capture():
                     break
     video.release()
     cv2.destroyAllWindows()
+
+if __name__=='__main__':
+    capture()
