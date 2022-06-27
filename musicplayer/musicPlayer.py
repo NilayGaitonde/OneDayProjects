@@ -34,16 +34,16 @@ class musicPlayer:
         playListFrame=tkinter.Frame(self.root)
         self.playList=tkinter.Listbox(playListFrame,font="helvetica 10",selectmode=tkinter.SINGLE,width=40)
         self.count=0
-        for pos,song in enumerate(os.listdir('C:/Users/ASUS/OneDayProjects/musicplayer/music/')):
+        for pos,song in enumerate(os.listdir('/Users/nilaygaitonde/Documents/GitHub/OneDayProjects/musicplayer/music')):
             self.playList.insert(pos,song)
             self.count=pos
         self.playList.pack()
         playListFrame.grid(row=3)
 
     def moveFile(self):
-        for files in os.listdir('C:/Users/ASUS/OneDayProjects/musicplayer/'):
+        for files in os.listdir('/Users/nilaygaitonde/Documents/GitHub/OneDayProjects/musicplayer/'):
             if(files.endswith('.mp3')):
-                shutil.move('C:/Users/ASUS/OneDayProjects/musicplayer/'+files,'C:/Users/ASUS/OneDayProjects/musicplayer/music')
+                shutil.move('/Users/nilaygaitonde/Documents/GitHub/OneDayProjects/musicplayer/'+files,'/Users/nilaygaitonde/Documents/GitHub/OneDayProjects/musicplayer/music')
     
 
     def searchSong(self):
@@ -67,7 +67,7 @@ class musicPlayer:
         finally:
             self.moveFile()
             self.playList.delete(0,self.count)
-            for pos,song in enumerate(os.listdir('C:/Users/ASUS/OneDayProjects/musicplayer/music/')):
+            for pos,song in enumerate(os.listdir('/Users/nilaygaitonde/Documents/GitHub/OneDayProjects/musicplayer/music')):
                 self.playList.insert(pos,song)
                 self.count=pos
 
@@ -76,7 +76,7 @@ class musicPlayer:
         mixer.music.set_volume(0.7)
         song=self.playList.get(tkinter.ACTIVE)
         self.songName.set(song)
-        mixer.music.load('./music/'+song)
+        mixer.music.load('/Users/nilaygaitonde/Documents/GitHub/OneDayProjects/musicplayer/music/'+song)
         mixer.music.play()
     def pause(self):
         mixer.music.pause()
